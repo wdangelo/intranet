@@ -1,0 +1,26 @@
+{% extends 'default.html' %}
+
+
+{% block body %}
+
+<div class="form-row text-center ml-4 mt-4 mb-4" ><h3>Agenda de Ramais</h3></div>
+
+
+
+<div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+       {% for agencies in the_agencies %}   
+        <li class="nav-item">
+          <a class="nav-link active" href="/pa{{ agencies.pa_num }}">{{ agencies.pa_num }} {{ agencies.pa_name }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="card-body">
+        <P>Lista de Ramais</P>
+    </div>
+  </div>
+
+
+{% endblock %}

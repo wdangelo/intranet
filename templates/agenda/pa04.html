@@ -1,0 +1,55 @@
+{% extends 'default.html' %}
+
+
+{% block body %}
+
+  <div class="form-row text-center ml-4 mt-4 mb-4" ><h3>Agenda de Ramais</h3></div>
+
+
+
+  <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+         {% for agencies in the_agencies %}   
+          <li class="nav-item">
+            <a class="nav-link active" href="/pa{{ agencies.pa_num }}">{{ agencies.pa_num }} {{ agencies.pa_name }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="card-body">
+
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Ramal</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">E-mail</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for users in the_users %}
+                            {% if users.pa == '04' %}
+                                <tr>
+                                
+                                    <th scope="row">{{ users.ramal }}</th>
+                                    <td>{{ users.name }}</td>
+                                    <td>{{ users.cargo }}</td>
+                                    <td>{{ users.email }}</td>
+                                </tr>
+                                
+                            {% endif %}    
+                    {% endfor %}
+
+
+                </tbody>
+            </table>
+
+      </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'default.html' %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+{% block body %}
+
+
+<div class="card mt-4 ml-5" style="max-width: 50rem; ">
+  <div class="form-row text-center ml-4 mt-4 mb-4" ><h3>Cadastro de Usuários</h3></div>
+  <div class="form-group ml-4 mr-4">
+      <form method="POST" action="/register">
+
+        <tr><td><label for="inputEmail4">Nome</label><input class="form-control" type="text" name="name" id="name" required></td></tr>
+        <tr><td><label for="inputEmail4">Usuário</label><input class="form-control" type="text" name="user" id="user" required></td></tr>
+        <tr><td><label for="inputEmail4">Cargo</label><input class="form-control" type="text" name="cargo" id="cargo" required></td></tr>
+        <tr><td><label for="inputEmail4">E-mail</label><input class="form-control" type="email" name="email" id="email" required></td></tr>
+        <tr><td><label for="inputEmail4">Ramal</label><input class="form-control" type="text" name="ramal" id="ramal" required></td></tr>
+        
+        <div class="form-group">
+        <tr><td><label for="inputEmail4">PA</label><select class="form-control" name="pa" id="pa">
+          {% for agencies in the_agencies %}
+          <option>{{ agencies.pa_num }}</option>
+          {% endfor %}
+          </select>
+        </div>
+        
+        <tr><td><label for="inputEmail4">Senha</label><input class="form-control" type="password" name="pass" id="pass" required></td></tr>
+        <tr><td><label for="inputEmail4">Confirmar Senha</label><input class="form-control" type="password" name="pass2" id="pass2" required></td></tr>
+        <br><br>
+        <tr><td> <input class="btn btn-success" value='Confirmar' type='SUBMIT'></td></tr>
+
+
+</form>
+
+
+
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}
+

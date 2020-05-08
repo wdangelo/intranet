@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+{% block body %}
+
+{% if the_alert %}
+
+<div class="alert alert-danger mx-auto" role="alert" >
+  {{ the_alert }}
+</div>
+
+{% else %}
+
+{% endif %}
+  <h2></h2>
+
+<div class="card border-success mt-5 mx-auto" style="max-width: 18rem; ">
+  <div class="card-header p-3 mb-2 bg-success text-white"><h3><p class="text-center">Login</p></h3></div>
+  <div class="card-body text-success mx-auto">
+      <form method="POST" action="/login">
+
+        <tr><td><h5 class="card-title">Usuário </h5></td><td><input class="border border-success" type="text" name="login_user" id="_login_user"></td></tr>
+        <tr><td><h5 class="card-title">Senha </h5></td><td><input class="border border-success" type="password" name="login_psw" id="login_psw"></td></tr>
+        <br><br>
+        <tr><td><input class="btn btn-success" value='Confirmar' type='SUBMIT'></td></tr>
+
+
+</form>
+
+
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

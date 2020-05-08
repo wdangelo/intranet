@@ -1,0 +1,87 @@
+{% extends 'default.html' %}
+
+{% block body %}
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-secondary" role="alert">
+            <center> <h1>{{ the_title }}</h1></center>
+          </div>
+
+            {% if the_alert %}
+
+            <div class="alert alert-danger mx-auto" role="alert" >
+            {{ the_alert }}
+            </div>
+
+            {% else %}
+
+            {% endif %}
+
+            {% if the_success %}
+
+            <div class="alert alert-success mx-auto" role="alert" >
+            {{ the_success }}
+            </div>
+
+            {% else %}
+
+            {% endif %}
+        
+         
+        <table class="table">
+            <thead>
+                
+              <tr>
+                {% for titles in the_row_titles %}
+                <th scope="col">{{ titles }}</th>
+                
+                {% endfor %}
+                
+              </tr>
+            </thead>
+
+            <tbody>
+                {% for users in the_users %}
+              <tr>
+                
+                <td>{{users}}</td>
+                <td>{{users.name}}</td>
+                <td>{{users.user}}</td>
+                <td>{{users.cargo}}</td>
+                <td>{{users.email}}</td>
+                <td>{{users.ramal}}</td>
+                <td>{{users.pa}}</td>
+                
+                <td>
+                    <a href="/edit_user/{{ users.id }}"><button type="submit" class="btn btn-warning ml-4 mr-4">Editar</button></a>
+                    <a href="/del_user/{{ users.id }}"><button type="submit" class="btn btn-danger ml-2">Excluir</button></a>
+                
+                
+                <td>
+                    
+                </td>
+                
+              </tr>
+              {% endfor %}
+
+
+
+              
+
+
+    </div>
+
+</div>
+
+<div class="card mb-2">
+  <div class="card-body">
+    Cadastrar novo Usuário   <a href="/user"><button type="button" class="btn btn-secondary">Cadastar</button></a>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

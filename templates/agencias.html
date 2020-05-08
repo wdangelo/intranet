@@ -1,0 +1,39 @@
+{% extends 'default.html' %}
+
+
+{% block body %}
+
+<div class="card mt-4 ml-5" style="max-width: 50rem; ">
+    <div class="form-row text-center ml-4 mt-4 mb-4" ><h3>Cadastro de Agências</h3></div>
+    <div class="form-group ml-4 mr-4">
+        <form method="POST" action="/register-pa">
+  
+          <tr><td><label for="inputEmail4">Nº</label><input class="form-control" type="text" name="pa_num" id="pa_num" required></td></tr>
+          <tr><td><label for="inputEmail4">Nome</label><input class="form-control" type="text" name="pa_name" id="pa_name" required></td></tr>
+          <tr><td><label for="inputEmail4">Cidade</label><input class="form-control" type="text" name="pa_city" id="pa_city" required></td></tr>
+          <tr><td><label for="inputEmail4">Endereço</label><input class="form-control" type="text" name="pa_address" id="pa_address" required></td></tr>
+          <tr><td><label for="inputEmail4">Telefone</label><input class="form-control" type="text" name="pa_phone" id="pa_phone" required></td></tr>
+
+          <tr><td><label for="inputEmail4">Imagem</label>
+            <div class="input-group mb-3">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="img_agencie">
+                <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Arquivo</label>
+              </div>
+            </div>
+          </td></tr>
+
+          <br><br>
+          <tr><td> <input class="btn btn-success" value='Confirmar' type='SUBMIT'></td></tr>
+  
+  
+  </form>
+  
+  
+  
+  
+    </div>
+  </div>
+
+
+{% endblock %}
