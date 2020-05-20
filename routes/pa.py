@@ -46,7 +46,7 @@ def viewagencies():
 def agenda() -> 'html':
     agencies = Agencies.select()
     users = User.select()
-    return render_template('agenda/pa00.html', the_users=users, the_agencies=agencies)
+    return render_template('agenda/pa00.html', the_users=users, the_agencies=agencies, titulo="Agenda de Ramais")
 
 
 @pa.route('/pa00')

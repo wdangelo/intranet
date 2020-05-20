@@ -42,24 +42,18 @@ def home() -> 'html':
                            )
 
 
-
 @app.route('/login', methods=['POST'])
 def do_login() -> 'html':
-    with UseDatabase(app.config['dbconfig']) as cursor:
-        _SQL = """select user, senha
-            from users"""
-        cursor.execute(_SQL)
-        contents = cursor.fetchall()
-        user_login = request.form['login_user'], request.form['login_psw']
-        if user_login in contents:
-            
+    userdb = User.select()
+    user_login = request.form['login_user'], request.form['login_psw']
+    for user in userdb:
+        if user.user and user.senha in user_login:
+
             session['logged_in'] = True
-
+            print(user.user, user.senha, session['logged_in'])
             return redirect('home')
-        else:
-            session.pop('logged_in')
-
-    return render_template('login.html', the_alert='Usuário ou senha inválido')
+    print(session)
+    return render_template('login.html', the_alert="Usuário Inálido")
 
 
 @app.route('/logout')

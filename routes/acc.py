@@ -1,6 +1,10 @@
 from flask import Blueprint, render_template, request
 from controllers.check_user import check_login
 from controllers.users import User, Agencies
+import os
+
+docs = (os.listdir('/users/williana2009_00/Documents/DEV/intranet/static/docs'))
+
 
 acc = Blueprint('acc', __name__, template_folder='templates')
 
@@ -50,3 +54,8 @@ def del_user(id):
     query.delete_instance()
     return render_template('viewusers.html',
                             the_success='Usuário excluido com sucesso!')
+
+
+@acc.route('/documentos')
+def documents():
+    return render_template('documentos/documentos.html', the_docs=docs)
